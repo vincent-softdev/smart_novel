@@ -14,6 +14,11 @@
       "plugin:@typescript-eslint/recommended",
       "plugin:prettier/recommended"
     ],
+    "env": {
+      "browser": true, // For browser globals
+      "node": true, // For Node.js globals
+      "jest": true // If you're using Jest for testing
+    },
     "rules": {
       "prettier/prettier": ["error"],
       "react/react-in-jsx-scope": "off",
