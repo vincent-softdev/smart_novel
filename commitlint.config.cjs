@@ -1,6 +1,6 @@
-// commitlint.config.mjs
-const Configuration = {
-  extends: ['@commitlint/config-conventional'],
+module.exports = {
+  // extends: ['@commitlint/config-conventional'],
+  extends: [],
   rules: {
     'header-min-length': [2, 'always', 20],
     'header-case-start-capital': [2, 'always'],
@@ -16,14 +16,9 @@ const Configuration = {
           ];
         },
         'header-end-period': ({ header }) => {
-          return [
-            /\.$/.test(header),
-            'Commit message must end with a period',
-          ];
+          return [/\.$/.test(header), 'Commit message must end with a period'];
         },
       },
     },
   ],
 };
-
-export default Configuration;
