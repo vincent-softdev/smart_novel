@@ -1,0 +1,33 @@
+name: Continuous Integration
+
+on:
+# We do not set specific for any branch, which means it will apply for all branches
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with: 
+          fetch-depth: 0
+      - name: Use Note.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 'v20.17.0'
+
+      - name: Install Deps
+        run: yarn install
+
+      - name: Run linters
+        run: yarn lint
+
+      - name: Run formatters
+        run: yarn format
+
+      - name: Check commit messages
+        uses: wagoid/commitlint-github-actions@v3
+        with:
+          configFile: commitlint.config.cjs

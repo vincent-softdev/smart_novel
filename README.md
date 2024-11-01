@@ -13,16 +13,20 @@ Will be continuously updated as the project progresses.
 - Typescript: Get type for it
 - SCSS: apply logical to CSS
 - HTML: just normal HTML
+- Format checking: Eslint, Prettier, Husky
+- Automation: Github CI/CD
 
 # Testing
 
 ## Format
 Eslint
 Prettier
-Husky
+Husky: for pre-commit setting
 
 ## Unit Testing
+Jest
 
+## CI/CD
 
 # Setup
 
