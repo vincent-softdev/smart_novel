@@ -1,28 +1,32 @@
 {
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-      "ecmaVersion": 2020,
-      "sourceType": "module",
-      "ecmaFeatures": {
-        "jsx": true
-      }
-    },
-    "plugins": ["react", "@typescript-eslint", "prettier"],
-    "extends": [
-      "eslint:recommended",
-      "plugin:react/recommended",
-      "plugin:@typescript-eslint/recommended",
-      "plugin:prettier/recommended"
-    ],
-    "env": {
-      "browser": true, // For browser globals
-      "node": true, // For Node.js globals
-      "jest": true // If you're using Jest for testing
-    },
-    "rules": {
-      "prettier/prettier": ["error"],
-      "react/react-in-jsx-scope": "off",
-      "@typescript-eslint/explicit-module-boundary-types": "off"
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": ["react", "@typescript-eslint", "prettier"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest": true
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off"
+  },
+  "settings": {
+    "react": {
+      "version": "detect" // Automatically pick the React version you are using
     }
   }
-  
+}
