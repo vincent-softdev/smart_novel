@@ -1,7 +1,14 @@
 name: Continuous Integration
 
+# this is trigger CI on push and PR for main branch only
+# on:
+#   push:
+#     branches: [ main ]
+#   pull_request:
+#     branches: [ main ]
+
+# this is trigger CI on all kinds of branches and PRs
 on:
-# We do not set specific for any branch, which means it will apply for all branches
   push:
   pull_request:
 
@@ -11,23 +18,23 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-        with: 
-          fetch-depth: 0
-      - name: Use Note.js
+        with:
+          fetch-depth: 0 # Fetch all history for all branches and tags
+      - name: Use Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 'v20.17.0'
+          node-version: '20.17.0'
 
-      - name: Install Deps
-        run: yarn install
+      - name: Install dependencies
+        run: npm install
 
-      - name: Run linters
-        run: yarn lint
+      - name: Run lint
+        run: npm run lint
 
-      - name: Run formatters
-        run: yarn format
+      - name: Run format check
+        run: npm run format
 
       - name: Check commit messages
-        uses: wagoid/commitlint-github-actions@v3
+        uses: wagoid/commitlint-github-action@v3
         with:
           configFile: commitlint.config.cjs
