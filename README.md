@@ -14,6 +14,16 @@ Will be continuously updated as the project progresses.
 - SCSS: apply logical to CSS
 - HTML: just normal HTML
 
+# Testing
+
+## Format
+Eslint
+Prettier
+Husky
+
+## Unit Testing
+
+
 # Setup
 
 run 
