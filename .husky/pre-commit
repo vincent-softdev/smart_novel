@@ -1,6 +1,5 @@
+#!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
 echo "Running pre-commit hook..."
-
 yarn lint-staged
-yarn eslint 'src/**/*.{js,jsx,ts,tsx}' --fix
