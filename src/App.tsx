@@ -9,7 +9,6 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>This is new</p>
         <h1>Header</h1>
-        <p><p>
       </header>
     </div>
   );
