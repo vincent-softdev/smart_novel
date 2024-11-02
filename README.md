@@ -7,6 +7,7 @@ Today, AI is everywhere—from advanced applications like coding and robotics to
 While some novel websites may already be implementing AI, I am committed to doing my best to bring AI technology to enrich our novel culture.
 
 # Technology used
+
 Will be continuously updated as the project progresses.
 
 - React: Javascript framework
@@ -19,24 +20,26 @@ Will be continuously updated as the project progresses.
 # Testing
 
 ## Format
+
 Eslint
 Prettier
 Husky: for pre-commit setting
 
 ## Unit Testing
+
 Jest
 
 ## CI/CD
 
 # Setup
 
-run 
+run
 
 ```bash
 npm install
 ```
 
-to install all dependencies. 
+to install all dependencies.
 
 then run the project locally
 
