@@ -1,0 +1,13 @@
+@import '../../variables';
+
+.header-container {
+  border-bottom: 0.1rem solid $border-color-primary;
+  height: 3.5rem;
+  padding: 1.3rem 1rem;
+  display: flex;
+  justify-content: space-between;
+
+  img {
+    height: 100%;
+  }
+}
