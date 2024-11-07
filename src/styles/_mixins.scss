@@ -15,3 +15,15 @@
     @content;
   }
 }
+
+@mixin tablet-and-desktop {
+  @media (min-width: 601px) {
+    @content;
+  }
+}
+
+@mixin phone-and-tablet {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
