@@ -1,0 +1,18 @@
+@keyframes grow {
+  from {
+    translate: 150px 0;
+  }
+
+  to {
+    translate: 0 0;
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: 0;
+  }
+}
