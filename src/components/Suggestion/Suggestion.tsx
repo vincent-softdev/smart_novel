@@ -10,7 +10,14 @@ const Suggestion = () => {
       <div className="suggestion-cards">
         {books.map((b) => {
           return (
-            <BookCard key={b.id} data={b} className="suggestion-cards__item" />
+            <BookCard key={b.id} data={b} className="suggestion-cards__item">
+              <BookCard.CoverImage />
+              <BookCard.Content>
+                <BookCard.Title />
+                <BookCard.Description />
+                <BookCard.Footer />
+              </BookCard.Content>
+            </BookCard>
           )
         })}
       </div>

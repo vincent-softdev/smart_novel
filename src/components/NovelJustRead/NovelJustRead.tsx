@@ -15,7 +15,20 @@ const NovelJustRead: React.FC = () => {
     <div className="novel-just-read__container">
       <h2 className="title">Recently Read Novels</h2>
       {novels.map((novel) => (
-        <NovelJustReadItem key={novel.id} novel={novel} />
+        <NovelJustReadItem
+          key={novel.id}
+          novel={novel}
+          className="novel-just-read__item"
+        >
+          <NovelJustReadItem.Header className="novel-just-read__item--header">
+            <NovelJustReadItem.Date />
+            <NovelJustReadItem.Title />
+          </NovelJustReadItem.Header>
+          <NovelJustReadItem.Detail className="novel-just-read__item--detail">
+            <NovelJustReadItem.ReadChapter />
+            <NovelJustReadItem.CloseButton />
+          </NovelJustReadItem.Detail>
+        </NovelJustReadItem>
       ))}
     </div>
   )
