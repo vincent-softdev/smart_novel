@@ -1,18 +1,79 @@
-import React from 'react'
-import highlighted_novel_image from '../../assets/images/books/witch_fight_with_woft.webp'
+import React, {
+  createContext,
+  HTMLAttributes,
+  PropsWithChildren,
+  useContext,
+} from 'react'
+import { NovelAds } from '../../types/book'
 
-const HighlightedNovel: React.FC = () => {
+type HighlightedNovelContext = {
+  data: NovelAds
+}
+
+type HighlightedNovelBodyProps = PropsWithChildren &
+  HTMLAttributes<HTMLDivElement>
+
+const HighlightedNovelContext = createContext<
+  HighlightedNovelContext | undefined
+>(undefined)
+
+const useHighlightedNovelContext = () => {
+  const context = useContext(HighlightedNovelContext)
+
+  if (!context) {
+    throw new Error(
+      'HighlightedNovelContext must be used within HighlightedNovel'
+    )
+  }
+
+  return context
+}
+
+type HighlightedNovelProps = HTMLAttributes<HTMLDivElement> &
+  PropsWithChildren & {
+    data: NovelAds
+  }
+
+const HighlightedNovel = ({
+  data,
+  children,
+  ...rest
+}: HighlightedNovelProps) => {
   return (
-    <div className="highlighted-novel__container">
-      <img src={highlighted_novel_image} alt="Highlighted Novel" />
-      <div className="highlighted-novel__title">
-        <h1 className="dirty-boy">Dirty boy font asdas</h1>
-        <p>
-          <strong>Author: </strong>Zic Zac
-        </p>
-      </div>
-    </div>
+    <HighlightedNovelContext.Provider value={{ data }}>
+      <div {...rest}>{children}</div>
+    </HighlightedNovelContext.Provider>
   )
 }
 
 export default HighlightedNovel
+
+HighlightedNovel.Image = function HighlightedNovelImage() {
+  const { data } = useHighlightedNovelContext()
+
+  return <img src={data.image} alt={data.name} />
+}
+
+HighlightedNovel.Body = function HighlightedNovelBody({
+  children,
+  ...rest
+}: HighlightedNovelBodyProps) {
+  return <div {...rest}>{children}</div>
+}
+
+HighlightedNovel.Title = function HighlightedNovelTitle() {
+  const { data } = useHighlightedNovelContext()
+
+  return <h1 className="dirty-boy">{data.name}</h1>
+}
+
+HighlightedNovel.Author = function HighlightedNovelAuthor() {
+  const { data } = useHighlightedNovelContext()
+
+  return (
+    <p>
+      <strong>Author: </strong>
+      {data.author}
+    </p>
+  )
+}

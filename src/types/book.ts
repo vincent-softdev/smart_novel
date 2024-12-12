@@ -19,3 +19,9 @@ export type UserBook = Book & {
   rating?: number
   read: number
 }
+
+export type NovelAds = {
+  name: string
+  author: string
+  image: string
+}
